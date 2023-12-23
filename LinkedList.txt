@@ -1,0 +1,40 @@
+import java.util.Scanner;
+class node{
+    int data;
+    node next;
+    node(int data)
+    {
+        this.data=data;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int size=sc.nextInt();
+	    node head=null;
+	    node temp=null;
+	    for(int i=0;i<size;i++)
+	    {
+	        int curr=sc.nextInt();
+	        node nn=new node(curr);
+	        if(head==null)
+	        {
+	            head=nn;
+	            temp=head;
+	        }
+	        else
+	        {
+	            temp.next=nn;
+	            temp=temp.next;
+	        }
+	    }
+	    while(head!=null)
+	    {
+	        System.out.print(head.data+"-->"+"");
+	        head=head.next;
+	    }
+
+	}
+    
+}
