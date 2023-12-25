@@ -1,0 +1,64 @@
+import java.util.*;
+import java.io.*;
+
+class node{
+    int data;
+    node next;
+    node(int data){
+        this.data = data;
+        next = null;
+    }
+}
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        node head=null;
+        node temp=null;
+        for(int i=0;i<size;i++)
+            {
+                int element=sc.nextInt();
+                node nn=new node(element);
+                if(head==null)
+                {
+                    head=nn;
+                    temp=head;
+                }
+                else
+                {
+                    temp.next=nn;
+                    temp=temp.next;
+                }
+            }
+       
+        int element2=sc.nextInt();
+         int pos=sc.nextInt();
+        node nnn=new node(element2);
+        if(pos==0)
+        {
+            nnn.next=head;
+           head=nnn;
+        }
+        else
+        {
+        node temp2=head;
+        for(int i=0;i<pos-1;i++)
+            {
+                 temp2=temp2.next;   
+            }
+        node prev=temp2;
+        node nextNode=prev.next;
+        prev.next=nnn;
+        nnn.next=nextNode;
+       
+        }
+         node curr=head;
+        while(curr!=null)
+            {
+                System.out.print(curr.data+" ");
+                curr=curr.next;
+            }
+        
+        
+    }
+}
